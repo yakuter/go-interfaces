@@ -4,7 +4,14 @@ package main
 
 import "fmt"
 
+// INTERFACE
+
+type printer interface {
+	print()
+}
+
 func main() {
+
 	var (
 		mobydick  = book{title: "moby dick", price: 10}
 		minecraft = game{title: "minecraft", price: 20}
@@ -17,8 +24,8 @@ func main() {
 	store.print()
 
 	// interface values are comparable
-	fmt.Println(store[0] == &minecraft)
-	fmt.Println(store[3] == rubik)
+	// fmt.Println(store[0] == &minecraft)
+	// fmt.Println(store[3] == rubik)
 }
 
 // BOOK
@@ -29,6 +36,10 @@ type book struct {
 
 func (b book) print() {
 	fmt.Printf("%-15s: %s\n", b.title, b.price.string())
+}
+
+func (b book) oku() {
+
 }
 
 // GAME
@@ -60,12 +71,6 @@ type money float64
 
 func (m money) string() string {
 	return fmt.Sprintf("$%.2f", m)
-}
-
-// INTERFACE
-
-type printer interface {
-	print()
 }
 
 type list []printer

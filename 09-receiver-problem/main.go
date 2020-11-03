@@ -29,12 +29,10 @@ func main() {
 	p1 := Person{"Sam", 25}
 	d1 = p1
 	d1.Describe()
-	p2 := Person{"James", 32}
-	d1 = &p2
-	d1.Describe()
 
 	var d2 Describer
 	a := Address{"Washington", "USA"}
+	d2 = &a
 
 	/* compilation error if the following line is
 	   uncommented
@@ -45,7 +43,7 @@ func main() {
 	*/
 	//d2 = a
 
-	d2 = &a //This works since Describer interface
+	// d2 = &a //This works since Describer interface
 	//is implemented by Address pointer in line 22
 	d2.Describe()
 
